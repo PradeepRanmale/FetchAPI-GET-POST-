@@ -34,7 +34,7 @@ form.addEventListener('submit', function (e) {
         },
     })
         .then((response) => response.json())
-        // .then((json) => console.log(json));
+        // .then((json) => console.log(json)); //Because of dummy server we can't sent a actual user input and its values to the sever because of it that data can't be shown on UI 
         .then(function(values){
             let newData=document.getElementById("table_body");
             newData.innerHTML+=  `<tr>
@@ -42,7 +42,8 @@ form.addEventListener('submit', function (e) {
             <td>${values.id}</td>
             <td>${values.title}</td>
             <td>${values.body}</td>
-        </tr>`;
+        </tr>`;//so i simply put that data directly in to the UI
         })
+        .catch(error=>{console.log(error);});
 })
 
